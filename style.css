@@ -1,0 +1,198 @@
+:root{
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-blue: hsl(215, 51%, 70%);
+  --clr-cyan:  hsl(178, 100%, 50%);
+  --clr-main-bg: hsl(217, 54%, 11%);
+  --clr-card-bg:  hsl(216, 50%, 16%);
+  --clr-dark-line:  hsl(215, 32%, 27%);
+}
+
+/* CSS basic styles and resets */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+
+h1, h2, h3{line-height: 1;}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+/* End of CSS resets */
+
+body{
+  font-family: 'Outfit', sans-serif; 
+  /* 300 400 600 */
+  background-color: var(--clr-main-bg);
+}
+
+.outer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.card{
+    background-color: var(--clr-card-bg);
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    gap: 1.5em;
+    border-radius: 10px;
+}
+
+.card-img img,
+.card-img:hover::before{
+  border-radius: 10px;
+}
+
+.card-img{position: relative;}
+
+.card-img::before{
+  content: '';
+  background-image: url(images/icon-view.svg);
+  background-color: hsla(178, 100%, 50%, 0.5);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .3s ease-out;
+}
+
+.card-img:hover::before{
+    opacity: 1;
+}
+
+.card-title{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.card-title a{
+  color: var(--clr-white);    
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.card-title a:hover{
+    color: var(--clr-cyan);
+}
+
+.card-description,
+.time-left{
+    color: var(--clr-blue);
+    font-size: 18px;
+}
+
+.eth{
+    color: var(--clr-cyan);
+    font-size: 18px;
+}
+
+.eth::before{
+    content: '';
+    display: inline-flex;
+    margin-right: 5px;
+    width: 11px;
+    height: 18px;
+    background-image: url(images/icon-ethereum.svg);
+    background-repeat: no-repeat;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--clr-dark-line);
+    padding-bottom: 1rem;
+}
+
+.time-left::before{
+  content: '';
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+  background-image: url(images/icon-clock.svg);
+  background-repeat: no-repeat;
+}
+
+.credits{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.credits-img{
+    max-width: 40px;
+    border: 2px solid var(--clr-white);
+    border-radius: 50%;
+}
+
+.credits-text{
+    font-size: 18px;
+    color: var(--clr-blue);
+}
+
+.credits-text a{
+    color: var(--clr-white);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.credits-text a:hover{
+  color: var(--clr-cyan);
+}
+
+.attribution {
+  font-size: 14px;
+  color: var(--clr-blue);
+  text-align: right;
+  position: fixed;
+  bottom: 13px;
+  right: 13px;
+}
+
+.attribution a {
+  color: var(--clr-cyan);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+@media (max-width: 839px){
+    .attribution{
+        position: static;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
